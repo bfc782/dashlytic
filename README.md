@@ -1,3 +1,5 @@
+[![Python application](https://github.com/bfc782/dashlytic/actions/workflows/run_tests.yml/badge.svg?branch=main)](https://github.com/bfc782/dashlytic/actions/workflows/run_tests.yml)
+
 [![Python application](https://github.com/bfc782/dashlytic/actions/workflows/run_tests.yml/badge.svg?branch=develop)](https://github.com/bfc782/dashlytic/actions/workflows/run_tests.yml)
 
 # dashlytic
