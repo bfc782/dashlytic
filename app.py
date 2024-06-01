@@ -19,7 +19,6 @@ def serve_layout():
 
 app.layout = serve_layout
 
-
 @callback(
     Output('graph-content', 'figure'),
     Input('dropdown-selection', 'value')
