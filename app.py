@@ -1,6 +1,7 @@
 # from https://dash.plotly.com/minimal-app
 
 from dash import Dash, html, dcc, callback, Output, Input
+
 import dash_bootstrap_components as dbc
 
 import plotly.express as px
@@ -18,11 +19,13 @@ def serve_layout():
 
 app.layout = serve_layout
 
+
 @callback(
     Output('graph-content', 'figure'),
     Input('dropdown-selection', 'value')
 )
 def update_graph(value):
+
     dff = data[data.customer==value]
     fig = px.line(dff, x='transaction_date', y='amount')
     fig.update_xaxes(type='date', tickformat='%Y-%m-%d', tickvals=dff['transaction_date'])
