@@ -9,5 +9,6 @@ def get_callbacks(components):
     )
 # fmt: on
     def update_graph(value):
-        fig = components.filter_data(value)
+        components.filter_data(value)
+        fig = components.get_line_plot()
         return fig
