@@ -1,15 +1,9 @@
-# from https://dash.plotly.com/minimal-app
-
-from dash import Dash, html, dcc, callback, Output, Input
-
-import dash_bootstrap_components as dbc
-
+from dash import Dash, callback, Output, Input
 import plotly.express as px
-import pandas as pd
-import datetime
 
-from layout import get_layout
 from data import df_fake_data as data
+from layout import get_layout
+
 
 app = Dash()
 
