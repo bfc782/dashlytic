@@ -21,7 +21,7 @@ def get_layout(components):
                 [
                     dbc.Col(
                         [
-                            dcc.Dropdown(id="dropdown-selection"),
+                            dcc.Dropdown(id="dropdown-selection", multi=True),
                             dcc.Graph(id="graph-content"),
                             dash_table.DataTable(id="table-content"),
                         ]
