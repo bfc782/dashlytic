@@ -8,7 +8,7 @@ class Components:
 
     def filter_data(self, value):
         self.dff = self.data[self.data["customer"] == value]
-    
+
     def get_line_plot(self):
         self.fig = px.line(self.dff, x="transaction_date", y="amount")
         self.fig.update_xaxes(
@@ -17,4 +17,10 @@ class Components:
         self.fig.update_yaxes(range=[0, 200])
         return self.fig
 
-
+    def get_dash_table(self):
+        self.table = dash_table.DataTable(
+            # id="table",
+            columns=[{"name": i, "id": i} for i in self.dff.columns],
+            data=self.dff.to_dict("records"),
+        )
+        return self.table

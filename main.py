@@ -8,11 +8,12 @@ from app.layout import get_layout
 
 app = Dash()
 
+components = Components(data)
+
 def serve_layout():
-    layout = get_layout(data)
+    layout = get_layout(components)
     return layout
 
-components = Components(data)
 app.layout = serve_layout
 
 _ = get_callbacks(components)
