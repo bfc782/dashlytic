@@ -1,8 +1,8 @@
 from dash import Dash, callback, Output, Input
 import plotly.express as px
 
-from data import df_fake_data as data
-from layout import get_layout
+from app.data import df_fake_data as data
+from app.layout import get_layout
 
 
 app = Dash()
