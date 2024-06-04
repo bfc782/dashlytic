@@ -9,6 +9,10 @@ class Components:
     def filter_data(self, value):
         self.dff = self.data[self.data["customer"] == value]
 
+    def get_dropdown_options(self):
+        self.dropdown_options = self.data["customer"].unique()
+        return self.dropdown_options
+
     def get_line_plot(self):
         self.fig = px.line(self.dff, x="transaction_date", y="amount")
         self.fig.update_xaxes(
