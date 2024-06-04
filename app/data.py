@@ -1,6 +1,4 @@
 import pandas as pd
-from datetime import date, timedelta
-from random import sample
 
 fake_data = [
     {"amount": 100, "customer": "abc", "transaction_date": "2024-05-31"},
