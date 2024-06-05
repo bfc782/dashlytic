@@ -8,6 +8,7 @@ Demonstrating analytics on simple transactional data using the open source versi
 Features to build:
 - sqlalchemy orm for UI transactions
 - dbt core for data-mart
+  * use itertools combinations to automate dimension grouping
 - dash client side caching
 - pattern-matching callbacks
 - insights recommender served on a dbc-carousel!
