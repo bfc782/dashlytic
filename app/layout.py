@@ -2,7 +2,7 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc, dash_table
 
 
-def get_layout(components):
+def get_layout():
     return dbc.Container(
         [
             dbc.Row(
