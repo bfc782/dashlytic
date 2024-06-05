@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/bfc782/dashlytic/branch/main/graph/badge.svg)](https://codecov.io/gh/bfc782/dashlytic)
+[![codecov](https://codecov.io/gh/bfc782/dashlytic/branch/main/graph/badge.svg?token={ secrets.CODECOV_TOKEN })](https://codecov.io/gh/bfc782/dashlytic)
 
 Main Branch: [![Dashlytic application - Main Branch](https://github.com/bfc782/dashlytic/actions/workflows/run_tests.yml/badge.svg?branch=main)](https://github.com/bfc782/dashlytic/actions/workflows/run_tests.yml)
 
