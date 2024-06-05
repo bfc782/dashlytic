@@ -1,8 +1,8 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc, dash_table
+from dash import html
 
 
-def get_layout():
+def get_layout(components):
     return dbc.Container(
         [
             dbc.Row(
@@ -21,9 +21,9 @@ def get_layout():
                 [
                     dbc.Col(
                         [
-                            dcc.Dropdown(id="dropdown-selection", multi=True),
-                            dcc.Graph(id="graph-content"),
-                            dash_table.DataTable(id="table-content"),
+                            components.dropdown,
+                            components.graph,
+                            components.table,
                         ]
                     ),
                 ]

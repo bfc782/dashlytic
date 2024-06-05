@@ -15,6 +15,6 @@ def get_callbacks(components):
     def update_graph(value):
         components.filter_data(value)
         dropdown_options = components.get_dropdown_options()
-        fig = components.get_line_plot()
-        table = components.get_dash_table()
+        fig = components.update_graph()
+        table = components.update_table()
         return dropdown_options, value, fig, table.columns, table.data
