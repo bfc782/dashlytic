@@ -4,3 +4,11 @@ Develop Branch: [![Dashlytic application - Develop Branch](https://github.com/bf
 
 # dashlytic
 Demonstrating analytics on simple transactional data using the open source version of dash-plotly.
+
+Features to build:
+- sqlalchemy orm for UI transactions
+- dbt core for data-mart
+- dash client side caching
+- pattern-matching callbacks
+- insights recommender served on a dbc-carousel!
+- variety of plotly figures
