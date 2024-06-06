@@ -5,22 +5,26 @@ import plotly.express as px
 class Components:
     def __init__(self, data):
         self.data = data
-        self.dropdown = dcc.Dropdown(id="dropdown-selection", multi=True)
+        self.data_dims = self.data.columns.unique().to_list()
+        self.dropdown_dim = dcc.Dropdown(
+            id="dropdown-dim-selection", value=self.data_dims[1], multi=True
+        )
+        self.dropdown_filter = dcc.Dropdown(id="dropdown-filter-selection", multi=True)
         self.graph = dcc.Graph(id="graph-content")
         self.table = dash_table.DataTable(id="table-content")
 
-    def get_dropdown_options(self):
-        self.dropdown_options = self.data["customer"].unique()
+    def get_dropdown_options(self, col):
+        self.dropdown_options = self.data[col].unique()
         return self.dropdown_options
 
-    def filter_data(self, value):
+    def filter_data(self, col, value):
         if value:
-            self.dff = self.data[self.data["customer"].isin(value)]
+            self.dff = self.data[self.data[col].isin(value)]
         else:
             self.dff = self.data
 
-    def update_graph(self):
-        self.fig = px.line(self.dff, x="transaction_date", y="amount", color="customer")
+    def update_graph(self, col):
+        self.fig = px.line(self.dff, x="transaction_date", y="amount", color=col)
         self.fig.update_xaxes(
             type="date", tickformat="%Y-%m-%d", tickvals=self.data["transaction_date"]
         )

@@ -21,7 +21,8 @@ def get_layout(components):
                 [
                     dbc.Col(
                         [
-                            components.dropdown,
+                            components.dropdown_dim,
+                            components.dropdown_filter,
                             components.graph,
                             components.table,
                         ]
