@@ -23,7 +23,7 @@ def get_layout(components):
                         [
                             components.dropdown_dim,
                             components.dropdown_filter,
-                            components.graph,
+                            # components.graph,
                             components.table,
                         ]
                     ),

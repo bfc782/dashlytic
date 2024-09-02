@@ -1,13 +1,16 @@
 from dash import dash_table, dcc
 import plotly.express as px
-
+from typing import Optional
 
 class Components:
-    def __init__(self, data):
+    def __init__(self, data, time_ix: str = "transaction_date", measure: str = "amount"):
         self.data = data
-        self.data_dims = self.data.columns.unique().to_list()
+        self.time_ix = time_ix
+        self.measure = measure
+        # self.time_measure = [time_ix, measure]
+        self.data_dim_options = self.data.columns.unique().to_list()
         self.dropdown_dim = dcc.Dropdown(
-            id="dropdown-dim-selection", value=self.data_dims[1], multi=True
+            id="dropdown-dim-selection", value=self.data_dim_options[1], multi=False  # false for now
         )
         self.dropdown_filter = dcc.Dropdown(id="dropdown-filter-selection", multi=True)
         self.graph = dcc.Graph(id="graph-content")
@@ -17,23 +20,22 @@ class Components:
         self.dropdown_options = self.data[col].unique()
         return self.dropdown_options
 
-    def filter_data(self, col, value):
-        if value:
-            self.dff = self.data[self.data[col].isin(value)]
-        else:
-            self.dff = self.data
+    def get_data_dim(self, col: str):
+        self.data_dim = self.data[[self.time_ix, col, self.measure]]
+        return self.data_dim
 
-    def update_graph(self, col):
-        self.fig = px.line(self.dff, x="transaction_date", y="amount", color=col)
+    def update_graph(self):
+        [col] = [i for i in self.data_dim.columns.tolist() if i not in [self.time_ix, self.measure]]
+        self.fig = px.line(self.data_dim, x=self.time_ix, y=self.measure, color=col)
         self.fig.update_xaxes(
-            type="date", tickformat="%Y-%m-%d", tickvals=self.data["transaction_date"]
+            type="date", tickformat="%Y-%m-%d", tickvals=self.data[self.time_ix]
         )
         self.fig.update_yaxes(range=[0, 200])
         return self.fig
 
     def update_table(self):
         self.table = dash_table.DataTable(
-            columns=[{"name": i, "id": i} for i in self.dff.columns],
-            data=self.dff.to_dict("records"),
+            columns=[{"name": i, "id": i} for i in self.data.columns],
+            data=self.data.to_dict("records"),
         )
         return self.table

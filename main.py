@@ -6,7 +6,9 @@ from app.data import df_fake_data as data
 from app.layout import get_layout
 
 
-app = Dash()
+app = Dash(__name__, 
+        #    suppress_callback_exceptions=True
+           )
 
 components = Components(data)
 
